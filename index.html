@@ -1,752 +1,189 @@
-<!--
-PORTFOLIO TEMPLATE (Single-page, responsive) for Data Analyst / Data Science roles
-- Works great on GitHub Pages
-- Includes: Featured Projects (GIS StoryMap + Streamlit Simulation), Project filters, About, Skills, Experience, Contact
-- No frameworks required
+<!DOCTYPE html>
+<html>
+<title>Milka Vincentiya's Portfolio</title>
 
-HOW TO USE:
-1) Create a new repo (or use your existing GitHub Pages repo)
-2) Add this file as: index.html
-3) Replace placeholder text + links (search for: TODO)
-4) Push to GitHub and enable Pages (Settings → Pages → Deploy from branch)
-
-OPTIONAL:
-- Add images in /assets and update the <img src="..."> paths
--->
-
-<!doctype html>
-<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TODO: Your Name | Data Analyst / Data Science Portfolio</title>
-  <meta name="description" content="TODO: Master's student in Urban Data Science at NYU. Data analyst with banking experience. Seeking Data Analyst / Data Science internships." />
-  <meta property="og:title" content="TODO: Your Name | Portfolio" />
-  <meta property="og:description" content="Data Analyst / Data Science projects: GIS StoryMap, Streamlit simulation, dashboards, SQL, Python." />
-  <meta property="og:type" content="website" />
-  <style>
-    :root{
-      --bg: #0b1020;
-      --panel: rgba(255,255,255,0.06);
-      --panel2: rgba(255,255,255,0.08);
-      --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.70);
-      --muted2: rgba(255,255,255,0.55);
-      --border: rgba(255,255,255,0.12);
-      --shadow: 0 12px 30px rgba(0,0,0,0.35);
-      --radius: 18px;
-      --radius2: 26px;
-      --max: 1060px;
-      --pad: 22px;
-      --pad2: 28px;
-      --chip: rgba(255,255,255,0.10);
-      --chipHover: rgba(255,255,255,0.14);
-      --focus: rgba(255,255,255,0.22);
-      --link: rgba(255,255,255,0.92);
-      --linkHover: rgba(255,255,255,1);
-      --ok: rgba(142, 255, 193, 0.18);
-      --warn: rgba(255, 217, 153, 0.18);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+</style>
 
-    *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      color: var(--text);
-      background:
-        radial-gradient(1200px 800px at 10% 10%, rgba(130,170,255,0.20), transparent 50%),
-        radial-gradient(1000px 700px at 90% 20%, rgba(255,170,210,0.16), transparent 55%),
-        radial-gradient(900px 650px at 50% 90%, rgba(150,255,210,0.12), transparent 50%),
-        var(--bg);
-      line-height: 1.55;
-    }
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0K5H04V2MT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    a{ color: var(--link); text-decoration: none; }
-    a:hover{ color: var(--linkHover); text-decoration: underline; }
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 18px; }
-    .nav{
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      backdrop-filter: blur(10px);
-      background: rgba(11,16,32,0.55);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner{
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 14px 0;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-      white-space: nowrap;
-    }
-    .dot{
-      width: 10px; height: 10px; border-radius: 999px;
-      background: rgba(255,255,255,0.85);
-      box-shadow: 0 0 0 6px rgba(255,255,255,0.10);
-      flex: 0 0 auto;
-    }
-    .nav-links{
-      display:flex;
-      align-items:center;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    .nav-links a{
-      padding: 8px 10px;
-      border-radius: 999px;
-      color: var(--muted);
-      border: 1px solid transparent;
-    }
-    .nav-links a:hover{
-      color: var(--text);
-      border-color: var(--border);
-      text-decoration: none;
-      background: rgba(255,255,255,0.05);
-    }
+  gtag('config', 'G-0K5H04V2MT');
+</script>	
 
-    .hero{
-      padding: 40px 0 22px;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.6fr 1fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-    @media (max-width: 860px){
-      .hero-grid{ grid-template-columns: 1fr; }
-    }
-
-    .card{
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius2);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .card.pad{ padding: var(--pad2); }
-    .kicker{
-      display:inline-flex;
-      gap: 8px;
-      align-items: center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 12px;
-    }
-    h1{
-      margin: 0 0 10px;
-      font-size: clamp(28px, 3.5vw, 40px);
-      line-height: 1.12;
-      letter-spacing: -0.4px;
-    }
-    .sub{
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 64ch;
-    }
-    .cta-row{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap: 8px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.06);
-      color: var(--text);
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
-    }
-    .btn:hover{
-      background: rgba(255,255,255,0.10);
-      border-color: rgba(255,255,255,0.18);
-      text-decoration: none;
-      transform: translateY(-1px);
-    }
-    .btn.primary{
-      background: rgba(255,255,255,0.14);
-      border-color: rgba(255,255,255,0.22);
-    }
-    .btn.primary:hover{
-      background: rgba(255,255,255,0.18);
-    }
-
-    .mini{
-      padding: 18px;
-      display:flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .mini h3{
-      margin: 2px 0 0;
-      font-size: 16px;
-    }
-    .mini p{
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .meta{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-    }
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      background: var(--chip);
-      border: 1px solid var(--border);
-      font-size: 13px;
-      color: var(--muted);
-    }
-    .chip strong{ color: var(--text); font-weight: 700; }
-    .divider{
-      height: 1px;
-      background: var(--border);
-      margin: 16px 0;
-    }
-
-    section{
-      padding: 18px 0 10px;
-    }
-    .section-title{
-      display:flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-    h2{
-      margin: 0;
-      font-size: 20px;
-      letter-spacing: -0.2px;
-    }
-    .hint{
-      margin: 0;
-      color: var(--muted2);
-      font-size: 13px;
-    }
-
-    /* Projects */
-    .filters{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 10px 0 6px;
-    }
-    .filter{
-      cursor:pointer;
-      user-select:none;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--chip);
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 13px;
-    }
-    .filter:hover{ background: var(--chipHover); color: var(--text); }
-    .filter.active{
-      background: rgba(255,255,255,0.14);
-      color: var(--text);
-      border-color: rgba(255,255,255,0.22);
-    }
-
-    .projects-grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
-      margin-top: 10px;
-    }
-    .proj{
-      grid-column: span 6;
-      border-radius: var(--radius2);
-      overflow:hidden;
-      border: 1px solid var(--border);
-      background: var(--panel);
-      box-shadow: var(--shadow);
-      display:flex;
-      flex-direction: column;
-      min-height: 320px;
-    }
-    @media (max-width: 860px){ .proj{ grid-column: span 12; } }
-
-    .proj-media{
-      height: 170px;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
-      border-bottom: 1px solid var(--border);
-      display:flex;
-      align-items:flex-end;
-      padding: 14px;
-    }
-    .badge{
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.06);
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 700;
-    }
-    .proj-body{
-      padding: 16px;
-      display:flex;
-      flex-direction: column;
-      gap: 10px;
-      flex: 1;
-    }
-    .proj h3{
-      margin: 0;
-      font-size: 16px;
-      letter-spacing: -0.2px;
-    }
-    .proj p{
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .bullets{
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .bullets li{ margin: 4px 0; }
-    .proj-links{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: auto;
-      padding-top: 6px;
-    }
-    .proj-links a{
-      display:inline-flex;
-      gap: 6px;
-      align-items:center;
-      font-weight: 700;
-      color: var(--text);
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.06);
-    }
-    .proj-links a:hover{
-      background: rgba(255,255,255,0.10);
-      text-decoration:none;
-      transform: translateY(-1px);
-    }
-
-    /* Two-column sections */
-    .two{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    @media (max-width: 860px){ .two{ grid-template-columns: 1fr; } }
-
-    .list{
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-    .list li{ margin: 8px 0; }
-    .footer{
-      padding: 28px 0 40px;
-      color: var(--muted2);
-      font-size: 13px;
-      text-align:center;
-    }
-
-    /* Accessibility */
-    a:focus, button:focus, .filter:focus{
-      outline: none;
-      box-shadow: 0 0 0 4px var(--focus);
-    }
-  </style>
 </head>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
 
-<body>
-  <!-- NAV -->
-  <div class="nav">
-    <div class="wrap">
-      <div class="nav-inner">
-        <div class="brand">
-          <span class="dot" aria-hidden="true"></span>
-          <span>TODO: Your Name</span>
-        </div>
-        <div class="nav-links" aria-label="Primary">
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-          <a href="#resume">Resume</a>
-        </div>
-      </div>
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:450px;" id="mySidebar"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+      <i class="fa fa-remove"></i>
+    </a>
+    
     </div>
+  <div class="w3-bar-block">
+    <center><h5>ABOUT ME</h5></center>
+    <br>
+    <p align="justify", style="padding: 5px 10px">
+    <img src="pp.png" style="width:45%; float:left; margin: 5px;" class="w3-round">
+	    Currently a data analytics trainee in banking sector with professional experience in analyzing national and international policy for
+				ASEAN Mutual Recognition Agreement (MRA). Interested in exploring a professional experience in data field
+				which leads to learn it through data science and analyst course. From her previous experience, she provided
+				a well-rounded background and enabled her to develop an understanding of international relation and
+				business sector, customer relation. On the technical side, she is skilled in Python, SQL, and Tableau.
+				Therefore, with the experiences she has and tools that have been taught, she believed the obtained skills will
+				be useful in economy or urban analysis things but are not limited to that.</p>
+    <br>
+    <center><h5>SKILLS</h5></center>
+    <br><center>
+      Python | SQL  |  Tableau  |  Microsoft Office  |  Adobe Photoshop/Illustrator | HTML/CSS
+  </center>
   </div>
+</nav>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div class="card pad">
-          <div class="kicker">🎓 NYU • Master’s in Urban Data Science</div>
-          <h1>Data Analyst / Data Science Portfolio</h1>
-          <p class="sub">
-            <!-- TODO: Replace with your final pitch -->
-            I’m a Master’s student in Urban Data Science at NYU with prior experience as a data analyst in banking (SQL, Tableau, Python ETL).
-            I build data products and analyses that support decision-making, and I’m seeking Data Analyst / Data Science internship opportunities.
-          </p>
-          <div class="cta-row">
-            <!-- TODO: Replace links -->
-            <a class="btn primary" href="#projects">View Projects</a>
-            <a class="btn" href="TODO: https://www.linkedin.com/in/your-link" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="btn" href="TODO: https://github.com/your-handle" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="btn" href="mailto:TODO:you@email.com">Email</a>
-          </div>
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-          <div class="divider"></div>
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:450px">
 
-          <div class="meta">
-            <!-- TODO: Update these chips -->
-            <span class="chip"><strong>Core:</strong> SQL • Python • Tableau</span>
-            <span class="chip"><strong>Also:</strong> GIS • Streamlit • ETL</span>
-            <span class="chip"><strong>Interest:</strong> climate/policy analytics</span>
-          </div>
-        </div>
-
-        <aside class="card mini" aria-label="Quick facts">
-          <h3>Quick facts</h3>
-          <p>
-            <!-- TODO -->
-            Previously: Data Analyst (Banking) — dashboards, KPI definitions, and automated pipelines.
-          </p>
-          <div class="meta">
-            <span class="chip">Available: <strong>Summer 2026</strong></span>
-            <span class="chip">Location: <strong>NYC / Remote</strong></span>
-          </div>
-
-          <div class="divider"></div>
-
-          <h3>What I’m looking for</h3>
-          <p>Data Analyst / Data Science internships involving analytics, dashboards, experimentation, and data pipelines.</p>
-
-          <div class="divider"></div>
-
-          <h3>Top strengths</h3>
-          <ul class="list">
-            <li>Translate ambiguous questions → measurable metrics</li>
-            <li>Clean/validate data and explain assumptions clearly</li>
-            <li>Build dashboards and lightweight data apps</li>
-          </ul>
-        </aside>
-      </div>
+  <!-- Header -->
+  <header id="portfolio">
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    <h1><b>PORTFOLIO</b></h1>
+    <div class="w3-section w3-bottombar w3-padding-16">
+      <button class="w3-button w3-white"><a href="#data">Data</a></button>
+      <button class="w3-button w3-white w3-hide-small"><a href="#others">Others</a></button>
+    <div>
     </div>
   </header>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>Projects</h2>
-        <p class="hint">Tip: Keep 3 “Featured” projects strongest and most interview-ready.</p>
-      </div>
-
-      <!-- Filters -->
-      <div class="filters" role="tablist" aria-label="Project filters">
-        <button class="filter active" data-filter="all" type="button">All</button>
-        <button class="filter" data-filter="featured" type="button">Featured</button>
-        <button class="filter" data-filter="dashboards" type="button">Dashboards</button>
-        <button class="filter" data-filter="data-science" type="button">Data Science</button>
-        <button class="filter" data-filter="apps" type="button">Apps</button>
-        <button class="filter" data-filter="gis" type="button">GIS</button>
-      </div>
-
-      <div class="projects-grid" id="projectsGrid">
-
-        <!-- FEATURED: GIS StoryMap -->
-        <article class="proj" data-tags="featured gis">
-          <div class="proj-media">
-            <span class="badge">FEATURED • GIS StoryMap</span>
-          </div>
-          <div class="proj-body">
-            <h3>TODO: GIS StoryMap — [Project Title]</h3>
-            <p>
-              <!-- TODO: 1–2 lines -->
-              A narrative spatial analysis that communicates insights through maps, layers, and interactive storytelling.
-            </p>
-            <ul class="bullets">
-              <!-- TODO: Make these real -->
-              <li><strong>Question:</strong> What patterns / disparities / opportunities are visible spatially?</li>
-              <li><strong>Method:</strong> Spatial joins, buffers, and thematic mapping with clear legend design.</li>
-              <li><strong>Outcome:</strong> A public-facing story for non-technical audiences.</li>
-            </ul>
-            <div class="proj-links">
-              <a href="TODO: https://storymaps.arcgis.com/..." target="_blank" rel="noreferrer">Open StoryMap ↗</a>
-              <a href="TODO: https://github.com/..." target="_blank" rel="noreferrer">Repo ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- FEATURED: Streamlit Simulation -->
-        <article class="proj" data-tags="featured apps data-science">
-          <div class="proj-media">
-            <span class="badge">FEATURED • Streamlit App</span>
-          </div>
-          <div class="proj-body">
-            <h3>TODO: Streamlit Simulation — [Project Title]</h3>
-            <p>
-              <!-- TODO -->
-              An interactive simulation that lets users explore “what-if” scenarios and see outcomes instantly.
-            </p>
-            <ul class="bullets">
-              <li><strong>Question:</strong> How do outcomes change under different assumptions/inputs?</li>
-              <li><strong>Method:</strong> Python modeling + interactive UI controls (sliders, inputs) in Streamlit.</li>
-              <li><strong>Outcome:</strong> A shareable data app useful for explanation and decision support.</li>
-            </ul>
-            <div class="proj-links">
-              <a href="TODO: https://your-app.streamlit.app" target="_blank" rel="noreferrer">Live App ↗</a>
-              <a href="TODO: https://github.com/..." target="_blank" rel="noreferrer">Code ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Example: Dashboard Project -->
-        <article class="proj" data-tags="dashboards featured">
-          <div class="proj-media">
-            <span class="badge">FEATURED • Dashboard</span>
-          </div>
-          <div class="proj-body">
-            <h3>TODO: KPI Dashboard — [Topic]</h3>
-            <p>Dashboard built to monitor performance trends and drill into drivers behind KPI changes.</p>
-            <ul class="bullets">
-              <li><strong>Data:</strong> TODO (public dataset or anonymized)</li>
-              <li><strong>Tech:</strong> SQL + Tableau</li>
-              <li><strong>Result:</strong> Clear KPIs + segment drilldowns + notes on metric definitions</li>
-            </ul>
-            <div class="proj-links">
-              <a href="TODO: https://public.tableau.com/..." target="_blank" rel="noreferrer">View Dashboard ↗</a>
-              <a href="TODO: https://github.com/..." target="_blank" rel="noreferrer">SQL/Docs ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Example: Data Science Project -->
-        <article class="proj" data-tags="data-science">
-          <div class="proj-media">
-            <span class="badge">Data Science</span>
-          </div>
-          <div class="proj-body">
-            <h3>TODO: Model + Evaluation — [Project Title]</h3>
-            <p>A modeling project focusing on clean evaluation, explainability, and honest limitations.</p>
-            <ul class="bullets">
-              <li><strong>Method:</strong> baseline → improved model, cross-validation, error analysis</li>
-              <li><strong>What I learned:</strong> when models fail + what data issues matter</li>
-              <li><strong>Deliverable:</strong> notebook + short write-up</li>
-            </ul>
-            <div class="proj-links">
-              <a href="TODO: https://github.com/..." target="_blank" rel="noreferrer">Notebook ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Example: GIS Analysis (non-storymap) -->
-        <article class="proj" data-tags="gis">
-          <div class="proj-media">
-            <span class="badge">GIS</span>
-          </div>
-          <div class="proj-body">
-            <h3>TODO: Spatial Analysis — [Project Title]</h3>
-            <p>Spatial analysis exploring accessibility/coverage patterns using buffers and joins.</p>
-            <ul class="bullets">
-              <li><strong>Method:</strong> buffers, spatial join, choropleth + map layout</li>
-              <li><strong>Outcome:</strong> map(s) + short interpretation</li>
-              <li><strong>Tools:</strong> QGIS / GeoPandas</li>
-            </ul>
-            <div class="proj-links">
-              <a href="TODO: https://github.com/..." target="_blank" rel="noreferrer">Repo ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Example: App / Tooling -->
-        <article class="proj" data-tags="apps">
-          <div class="proj-media">
-            <span class="badge">App / Tool</span>
-          </div>
-          <div class="proj-body">
-            <h3>TODO: Data Utility — [Project Title]</h3>
-            <p>A small tool that automates cleaning/validation or produces reusable reporting outputs.</p>
-            <ul class="bullets">
-              <li><strong>Focus:</strong> reliability, documentation, reproducibility</li>
-              <li><strong>Tech:</strong> Python + SQL</li>
-              <li><strong>Outcome:</strong> reusable scripts + README</li>
-            </ul>
-            <div class="proj-links">
-              <a href="TODO: https://github.com/..." target="_blank" rel="noreferrer">Repo ↗</a>
-            </div>
-          </div>
-        </article>
-
+  
+  
+  <!-- Data/First Grid-->
+  <div class="w3-row-padding" style="margin-bottom:30px">
+    <div id="data"><h4><b>Data - Analytics</b></h4></div>
+    <div class="w3-third w3-container w3-margin-bottom">
+      <a href="#"><img src="mac.png" alt="mac-looker" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Autistic Children Daily Activity Visualization</b></p></a>
+        <p><i>Oct 2023 | Looker Studio</i></p>
+	<p>Still on progress project with MAC. The goal is to create a dashboard that visualize the progress of autistic children's daily activity.</p>
       </div>
     </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>Skills</h2>
-        <p class="hint">Keep it simple and evidence-based (projects above should back these up).</p>
-      </div>
-
-      <div class="two">
-        <div class="card pad">
-          <h3 style="margin:0 0 10px;">Technical</h3>
-          <ul class="list">
-            <li><strong>SQL:</strong> joins, CTEs, window functions, KPI extraction</li>
-            <li><strong>Python:</strong> pandas, numpy, data cleaning, ETL scripts</li>
-            <li><strong>Dashboards:</strong> Tableau (and/or Looker/Power BI)</li>
-            <li><strong>Apps:</strong> Streamlit, basic deployment</li>
-            <li><strong>GIS:</strong> QGIS, GeoPandas (optional emphasis)</li>
-          </ul>
-        </div>
-        <div class="card pad">
-          <h3 style="margin:0 0 10px;">Work style</h3>
-          <ul class="list">
-            <li>Requirements gathering and metric definition with stakeholders</li>
-            <li>Documentation and reproducible workflows</li>
-            <li>Data validation, error analysis, and clear assumptions</li>
-            <li>Communicating insights to non-technical audiences</li>
-          </ul>
-        </div>
+    <div class="w3-third w3-container w3-margin-bottom">
+      <a href="https://github.com/akulim/country-gdp-clustering/blob/main/Country_GDP_Clustering.pdf"><img src="gdp.png" alt="gdp-clustering" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Country GDP Clustering</b></p></a>
+	<p><i>Apr 2022 | Python, K-Means Clustering</i></p>
+        <p>As HELP International suceed in raising funds to be donated. 
+	This project's goal is to assist HELP International in finding which countries to receive the donation.</p>
       </div>
     </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>Experience</h2>
-        <p class="hint">Add your real company/title/dates (or anonymize if needed).</p>
+    <div class="w3-third w3-container">
+       <a href="https://github.com/akulim/olist-characteristic/tree/main/olist-future-sales"><img src="olist.png" alt="olist-future" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Forecasting Olist Future Sales</b></p></a>
+	<p><i>Dec 2022 | Python, SQLite3, AutoARIMA</i></p>
+        <p>Olist is an ecommerce from Brazil which approach sellers to sell on their platform.
+	This project's goal is to know the future sales obtained by the sellers.</p>
       </div>
-
-      <div class="card pad">
-        <h3 style="margin:0 0 10px;">Data Analyst — Banking (Indonesia)</h3>
-        <p style="margin:0 0 10px; color:var(--muted);">TODO: Company • TODO: Dates • SQL • Tableau • Python</p>
-        <ul class="list">
-          <li>Extracted data using SQL based on business needs, ensuring accurate and timely insights.</li>
-          <li>Built and iteratively improved Tableau dashboards to support operational and strategic decisions.</li>
-          <li>Partnered with users to define metrics and align granularity with reporting needs.</li>
-          <li>Developed Python-based ETL pipelines to automate complex data flows and dashboard inputs.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESUME -->
-  <section id="resume">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>Resume</h2>
-        <p class="hint">Add a PDF to your repo (e.g., /assets/resume.pdf) and link it here.</p>
-      </div>
-      <div class="card pad">
-        <div class="cta-row">
-          <a class="btn primary" href="TODO: assets/resume.pdf" target="_blank" rel="noreferrer">Open Resume (PDF) ↗</a>
-          <a class="btn" href="TODO: assets/resume.pdf" download>Download</a>
-        </div>
-        <p style="margin:12px 0 0; color:var(--muted2); font-size:13px;">
-          Tip: keep it 1 page for internships.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p class="hint">Make it easy to reach you.</p>
-      </div>
-
-      <div class="card pad">
-        <div class="cta-row">
-          <a class="btn primary" href="mailto:TODO:you@email.com">Email</a>
-          <a class="btn" href="TODO: https://www.linkedin.com/in/your-link" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn" href="TODO: https://github.com/your-handle" target="_blank" rel="noreferrer">GitHub</a>
-        </div>
-        <p style="margin:12px 0 0; color:var(--muted);">
-          <!-- TODO -->
-          If you’re hiring for Data Analyst / Data Science internships, I’d love to chat.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <div class="footer">
-    <div class="wrap">
-      © <span id="year"></span> TODO: Your Name • Built with HTML/CSS • Hosted on GitHub Pages
     </div>
   </div>
+  
+  <!-- Data/Second Grid-->
+  <div class="w3-row-padding w3-bottombar" style="margin-bottom:30px">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <a href="https://replit.com/@akulim/ssuperrmarket-checkout-system#main.py"><img src="ss.png" alt="ssuperrmarket" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>SSuperrMarket Checkout System</b></p></a>
+	<p><i>Dec 2022 | Python</i></p>
+        <p>A simple self-checkout system for ssuperrmarket which includes add items, edit items, until cancel payment.</p>
+      </div>
+    </div>
+    <div class="w3-third w3-container w3-margin-bottom">
+      <a href="https://akulim.github.io/insurance-scoring/"><img src="insur.png" alt="insurance" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+	<p><b>Insurance Scoring</b></p></a>
+	<p><i>Oct 2022 | Probability, Python, Tableau</i></p>
+        <p>To find whether the selected criterias have possibility to affect the insurance pricing.</p>
+      </div>
+    </div>
+    <div class="w3-third w3-container">
+	<div class="w3-container w3-white">
+	<p><b>Other Data Analytics Projects</b></p>
+       	<li><a href="https://akulim.github.io/Indonesia-Tourism-Viz/">Indonesia Tourism Data Visualization</a></li>
+	<li><a href="https://github.com/akulim/10-must-buy-property-project/blob/main/TOP%2010%20MUST-BUY%20PROPERTY.pdf">Top 10 Must-Buy Property Recommendation</a></li>
+	<li><a href="https://github.com/akulim/flight_customer_clustering/blob/main/Flight%20Customer%20Clustering%20Report.pdf">Flight Customer Clustering</a></li>
+	<li><a href="https://github.com/akulim/supply-chain-analysis/blob/main/SCM%20Data%20Analysis.pdf">Supply Chain Visualization Analysis</a></li>
+      <br>
+		<br>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Others Grid-->
+  <div class="w3-row-padding" style="margin-bottom:20px">
+    <div id="others"><h4><b>Others</b></h4></div>
+    <div class="w3-third w3-container w3-margin-bottom">
+      <a href="https://drive.google.com/file/d/1WZdMR5rD5nolT-hlxYYTu5Uq6Fx0MTIJ/view?usp=sharing"><img src="arch.png" alt="green" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Architecture & Design</b></p></a>
+        <p>A collection of my architecture portfolio from studio projects (2017-2018) to real projects (2019).</p>
+      </div>
+    </div>
+    <div class="w3-third w3-container w3-margin-bottom">
+      <div class="w3-container w3-white">
+        <p><a href="https://medium.com/@akulim/"><b>Medium (Bahasa Indonesia)</b></p></a>
+	<p>A summary of books I have read. Mostly about self-help and personal finance.</p>
+      </div>
+	<br><br>
+	<div class="w3-container w3-white">
+	<p><b>Translations</b></p>
+	<li><a href="https://akulim.github.io/portfolio/littleprince1.html">Little Prince (EN-ID)</a></li>
+	<li><a href="https://akulim.github.io/portfolio/oculus.html">The Latte Factor (EN-ID)</a></li>
+	<li><a href="https://akulim.github.io/portfolio/news-jp.html">Real Estate News 2020 (JP-ID)</a></li>
+		<br>
+	</div>
+    </div>
+    
+  </div>
+  
+  <div class="w3-black w3-center w3-padding-24">
+    Let's connect!
+    <br>
+    <a href="https://linkedin.com/in/milka-vincentiya/"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+    <br>
+    <br>
+    Template by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
 
-  <script>
-    // Year
-    document.getElementById("year").textContent = new Date().getFullYear();
+<!-- End page content -->
+</div>
 
-    // Project filtering
-    const filters = Array.from(document.querySelectorAll(".filter"));
-    const projects = Array.from(document.querySelectorAll(".proj"));
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+</script>
 
-    function setActive(btn){
-      filters.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-    }
-
-    function applyFilter(tag){
-      projects.forEach(p => {
-        const tags = (p.getAttribute("data-tags") || "").split(/\s+/).filter(Boolean);
-        const show = (tag === "all") || tags.includes(tag);
-        p.style.display = show ? "flex" : "none";
-      });
-    }
-
-    filters.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const tag = btn.getAttribute("data-filter");
-        setActive(btn);
-        applyFilter(tag);
-      });
-    });
-  </script>
 </body>
 </html>
