@@ -1,187 +1,144 @@
 <!DOCTYPE html>
 <html>
-<title>Milka Vincentiya's Portfolio</title>
+<title>Milka Vincentiya | Urban Data Science Portfolio</title>
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+/* Soft green-blue personalization */
+:root {
+  --accent: #6fbfb5;
+  --darkbg: #0f1f1d;
+}
+
+.w3-accent {
+  background-color: var(--accent);
+  color: white;
+}
+
+.w3-dark {
+  background-color: var(--darkbg);
+  color: white;
+}
 </style>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0K5H04V2MT"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-0K5H04V2MT');
-</script>	
-
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0K5H04V2MT');
+</script>
 </head>
+
 <body class="w3-light-grey w3-content" style="max-width:1600px">
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:450px;" id="mySidebar"><br>
-  <div class="w3-container">
-    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
-      <i class="fa fa-remove"></i>
-    </a>
-    
-    </div>
-  <div class="w3-bar-block">
-    <center><h5>ABOUT ME</h5></center>
-    <br>
-    <p align="justify", style="padding: 5px 10px">
-    <img src="pp.png" style="width:45%; float:left; margin: 5px;" class="w3-round">
-	    Currently a data analytics trainee in banking sector with professional experience in analyzing national and international policy for
-				ASEAN Mutual Recognition Agreement (MRA). Interested in exploring a professional experience in data field
-				which leads to learn it through data science and analyst course. From her previous experience, she provided
-				a well-rounded background and enabled her to develop an understanding of international relation and
-				business sector, customer relation. On the technical side, she is skilled in Python, SQL, and Tableau.
-				Therefore, with the experiences she has and tools that have been taught, she believed the obtained skills will
-				be useful in economy or urban analysis things but are not limited to that.</p>
-    <br>
-    <center><h5>SKILLS</h5></center>
-    <br><center>
-      Python | SQL  |  Tableau  |  Microsoft Office  |  Adobe Photoshop/Illustrator | HTML/CSS
-  </center>
-  </div>
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:450px;" id="mySidebar">
+<br>
+<div class="w3-container">
+  <img src="pp.png" class="w3-round" style="width:45%">
+  <h4><b>Milka Vincentiya</b></h4>
+  <p>Master’s Student — Urban Data Science (NYU)</p>
+</div>
+
+<div class="w3-bar-block">
+  <h5 class="w3-padding">ABOUT ME</h5>
+  <p class="w3-padding-small" align="justify">
+    I am currently pursuing a Master’s degree in Urban Data Science at NYU, with prior professional experience as a data analyst in the banking sector and a background in architecture.
+    My interests lie in data-driven urban analysis, climate and policy evaluation, GIS, and simulation-based decision support.
+  </p>
+
+  <h5 class="w3-padding">SKILLS</h5>
+  <p class="w3-padding-small">
+    Python • SQL • GIS • Streamlit • Tableau • Looker Studio • HTML/CSS
+  </p>
+</div>
 </nav>
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" id="myOverlay"></div>
 
-<!-- !PAGE CONTENT! -->
+<!-- PAGE CONTENT -->
 <div class="w3-main" style="margin-left:450px">
 
-  <!-- Header -->
-  <header id="portfolio">
-    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
-    <div class="w3-container">
-    <h1><b>PORTFOLIO</b></h1>
-    <div class="w3-section w3-bottombar w3-padding-16">
-      <button class="w3-button w3-white"><a href="#data">Data</a></button>
-      <button class="w3-button w3-white w3-hide-small"><a href="#others">Others</a></button>
-    <div>
-    </div>
-  </header>
-  
-  
-  <!-- Data/First Grid-->
-  <div class="w3-row-padding" style="margin-bottom:30px">
-    <div id="data"><h4><b>Data - Analytics</b></h4></div>
-    <div class="w3-third w3-container w3-margin-bottom">
-      <a href="#"><img src="mac.png" alt="mac-looker" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-        <p><b>Autistic Children Daily Activity Visualization</b></p></a>
-        <p><i>Oct 2023 | Looker Studio</i></p>
-	<p>Still on progress project with MAC. The goal is to create a dashboard that visualize the progress of autistic children's daily activity.</p>
-      </div>
-    </div>
-    <div class="w3-third w3-container w3-margin-bottom">
-      <a href="https://github.com/akulim/country-gdp-clustering/blob/main/Country_GDP_Clustering.pdf"><img src="gdp.png" alt="gdp-clustering" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-        <p><b>Country GDP Clustering</b></p></a>
-	<p><i>Apr 2022 | Python, K-Means Clustering</i></p>
-        <p>As HELP International suceed in raising funds to be donated. 
-	This project's goal is to assist HELP International in finding which countries to receive the donation.</p>
-      </div>
-    </div>
-    <div class="w3-third w3-container">
-       <a href="https://github.com/akulim/olist-characteristic/tree/main/olist-future-sales"><img src="olist.png" alt="olist-future" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-        <p><b>Forecasting Olist Future Sales</b></p></a>
-	<p><i>Dec 2022 | Python, SQLite3, AutoARIMA</i></p>
-        <p>Olist is an ecommerce from Brazil which approach sellers to sell on their platform.
-	This project's goal is to know the future sales obtained by the sellers.</p>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Data/Second Grid-->
-  <div class="w3-row-padding w3-bottombar" style="margin-bottom:30px">
-    <div class="w3-third w3-container w3-margin-bottom">
-      <a href="https://replit.com/@akulim/ssuperrmarket-checkout-system#main.py"><img src="ss.png" alt="ssuperrmarket" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-        <p><b>SSuperrMarket Checkout System</b></p></a>
-	<p><i>Dec 2022 | Python</i></p>
-        <p>A simple self-checkout system for ssuperrmarket which includes add items, edit items, until cancel payment.</p>
-      </div>
-    </div>
-    <div class="w3-third w3-container w3-margin-bottom">
-      <a href="https://akulim.github.io/insurance-scoring/"><img src="insur.png" alt="insurance" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-	<p><b>Insurance Scoring</b></p></a>
-	<p><i>Oct 2022 | Probability, Python, Tableau</i></p>
-        <p>To find whether the selected criterias have possibility to affect the insurance pricing.</p>
-      </div>
-    </div>
-    <div class="w3-third w3-container">
-	<div class="w3-container w3-white">
-	<p><b>Other Data Analytics Projects</b></p>
-       	<li><a href="https://akulim.github.io/Indonesia-Tourism-Viz/">Indonesia Tourism Data Visualization</a></li>
-	<li><a href="https://github.com/akulim/10-must-buy-property-project/blob/main/TOP%2010%20MUST-BUY%20PROPERTY.pdf">Top 10 Must-Buy Property Recommendation</a></li>
-	<li><a href="https://github.com/akulim/flight_customer_clustering/blob/main/Flight%20Customer%20Clustering%20Report.pdf">Flight Customer Clustering</a></li>
-	<li><a href="https://github.com/akulim/supply-chain-analysis/blob/main/SCM%20Data%20Analysis.pdf">Supply Chain Visualization Analysis</a></li>
-      <br>
-		<br>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Others Grid-->
-  <div class="w3-row-padding" style="margin-bottom:20px">
-    <div id="others"><h4><b>Others</b></h4></div>
-    <div class="w3-third w3-container w3-margin-bottom">
-      <a href="https://drive.google.com/file/d/1WZdMR5rD5nolT-hlxYYTu5Uq6Fx0MTIJ/view?usp=sharing"><img src="arch.png" alt="green" style="width:100%" class="w3-hover-opacity">
-      <div class="w3-container w3-white">
-        <p><b>Architecture & Design</b></p></a>
-        <p>A collection of my architecture portfolio from studio projects (2017-2018) to real projects (2019).</p>
-      </div>
-    </div>
-    <div class="w3-third w3-container w3-margin-bottom">
-      <div class="w3-container w3-white">
-        <p><a href="https://medium.com/@akulim/"><b>Medium (Bahasa Indonesia)</b></p></a>
-	<p>A summary of books I have read. Mostly about self-help and personal finance.</p>
-      </div>
-	<br><br>
-	<div class="w3-container w3-white">
-	<p><b>Translations</b></p>
-	<li><a href="https://akulim.github.io/portfolio/littleprince1.html">Little Prince (EN-ID)</a></li>
-	<li><a href="https://akulim.github.io/portfolio/oculus.html">The Latte Factor (EN-ID)</a></li>
-	<li><a href="https://akulim.github.io/portfolio/news-jp.html">Real Estate News 2020 (JP-ID)</a></li>
-		<br>
-	</div>
-    </div>
-    
-  </div>
-  
-  <div class="w3-black w3-center w3-padding-24">
-    Let's connect!
-    <br>
-    <a href="https://linkedin.com/in/milka-vincentiya/"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
-    <br>
-    <br>
-    Template by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
+<header class="w3-container">
+  <h1><b>Portfolio</b></h1>
+</header>
 
-<!-- End page content -->
+<!-- ================= FEATURED PROJECTS ================= -->
+<div class="w3-container">
+  <h3><b>Featured Projects</b></h3>
+</div>
+
+<div class="w3-row-padding w3-margin-bottom">
+
+  <!-- GIS StoryMap -->
+  <div class="w3-half w3-container">
+    <a href="YOUR_GIS_STORYMAP_LINK" target="_blank">
+      <img src="gis_storymap.png" style="width:100%" class="w3-hover-opacity">
+    </a>
+    <div class="w3-container w3-white">
+      <p><b>Urban Policy GIS StoryMap</b></p>
+      <p><i>GIS, Urban Policy, Spatial Analysis</i></p>
+      <p>
+        An interactive GIS StoryMap analyzing urban and policy-related spatial patterns.
+        Designed to communicate insights to non-technical stakeholders through maps and narrative.
+      </p>
+    </div>
+  </div>
+
+  <!-- Streamlit App -->
+  <div class="w3-half w3-container">
+    <a href="YOUR_STREAMLIT_APP_LINK" target="_blank">
+      <img src="streamlit.png" style="width:100%" class="w3-hover-opacity">
+    </a>
+    <div class="w3-container w3-white">
+      <p><b>Urban Simulation & Scenario Explorer</b></p>
+      <p><i>Python, Streamlit, Simulation</i></p>
+      <p>
+        A Streamlit-based interactive simulation allowing users to explore scenarios and model outcomes
+        related to urban systems and policy decisions.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ================= EXISTING DATA PROJECTS ================= -->
+<div class="w3-container">
+  <h3><b>Data Analytics Projects</b></h3>
+</div>
+
+<!-- KEEP YOUR EXISTING GRIDS BELOW (UNCHANGED) -->
+<!-- You can paste your previous Data grids here exactly as-is -->
+
+<!-- FOOTER -->
+<div class="w3-dark w3-center w3-padding-24">
+  <p>Let’s connect</p>
+  <a href="https://linkedin.com/in/milka-vincentiya">
+    <i class="fa fa-linkedin w3-xlarge w3-hover-opacity"></i>
+  </a>
+</div>
+
 </div>
 
 <script>
-// Script to open and close sidebar
 function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
 }
- 
 function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
 }
 </script>
 
