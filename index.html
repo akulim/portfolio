@@ -13,15 +13,8 @@
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
-/* Soft green-blue personalization */
 :root {
   --accent: #6fbfb5;
-  --accent-dark: #0f2f2c;
-}
-
-.w3-accent {
-  background-color: var(--accent);
-  color: white;
 }
 
 .w3-accent-text {
@@ -44,20 +37,25 @@ gtag('config', 'G-0K5H04V2MT');
 <!-- Sidebar -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:450px;" id="mySidebar">
 <br>
+
 <div class="w3-container">
-  <img src="pp.png" style="width:45%" class="w3-round">
+  <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey">
+    <i class="fa fa-remove"></i>
+  </a>
 </div>
 
 <div class="w3-bar-block">
-  <center><h5>ABOUT ME</h5></center>
+  <center><h5 class="w3-accent-text">ABOUT ME</h5></center>
+
   <p align="justify" style="padding:10px">
-    Currently a Master’s student in Urban Data Science at NYU, with professional experience as a data analyst in the banking sector and a background in architecture.
-    Interested in data-driven urban analysis, GIS, climate & policy evaluation, and simulation-based decision support.
+    Currently a Master’s student in Urban Data Science with professional experience as a Data Analyst in the banking sector.
+    Background in architecture with strong interest in data-driven analysis for urban, policy, and economic applications.
+    Skilled in Python, SQL, Tableau, and GIS-based analysis.
   </p>
 
-  <center><h5>SKILLS</h5></center>
+  <center><h5 class="w3-accent-text">SKILLS</h5></center>
   <p class="w3-center">
-    Python | SQL | GIS | Streamlit | Tableau | Looker Studio | HTML/CSS
+    Python | SQL | Tableau | Looker Studio | GIS | HTML/CSS | Adobe Photoshop/Illustrator
   </p>
 </div>
 </nav>
@@ -68,54 +66,21 @@ gtag('config', 'G-0K5H04V2MT');
 <div class="w3-main" style="margin-left:450px">
 
 <header class="w3-container">
+  <span class="w3-button w3-hide-large w3-xxlarge" onclick="w3_open()"><i class="fa fa-bars"></i></span>
   <h1><b>PORTFOLIO</b></h1>
+
+  <div class="w3-section w3-bottombar w3-padding-16">
+    <button class="w3-button w3-white"><a href="#data">Data</a></button>
+    <button class="w3-button w3-white"><a href="#others">Others</a></button>
+  </div>
 </header>
 
-<!-- ================= FEATURED PROJECTS ================= -->
-<div class="w3-container">
-  <h4 class="w3-accent-text"><b>Featured Projects</b></h4>
-</div>
-
+<!-- ================= DATA PROJECTS ================= -->
 <div class="w3-row-padding" style="margin-bottom:30px">
-
-  <!-- GIS StoryMap -->
-  <div class="w3-half w3-container w3-margin-bottom">
-    <a href="YOUR_GIS_STORYMAP_LINK">
-      <img src="gis_storymap.png" style="width:100%" class="w3-hover-opacity">
-    </a>
-    <div class="w3-container w3-white">
-      <p><b>Urban Policy GIS StoryMap</b></p>
-      <p><i>GIS | Urban Policy | Spatial Storytelling</i></p>
-      <p>
-        An interactive GIS StoryMap analyzing spatial patterns related to urban policy and planning,
-        designed for both technical and non-technical audiences.
-      </p>
-    </div>
-  </div>
-
-  <!-- Streamlit Simulation -->
-  <div class="w3-half w3-container w3-margin-bottom">
-    <a href="YOUR_STREAMLIT_APP_LINK">
-      <img src="streamlit.png" style="width:100%" class="w3-hover-opacity">
-    </a>
-    <div class="w3-container w3-white">
-      <p><b>Urban Simulation & Scenario Explorer</b></p>
-      <p><i>Python | Streamlit | Simulation</i></p>
-      <p>
-        An interactive simulation app built with Streamlit to explore scenarios and model outcomes
-        for urban systems and policy-driven decisions.
-      </p>
-    </div>
-  </div>
-
-</div>
-
-<!-- ================= EXISTING DATA PROJECTS (UNCHANGED) ================= -->
-<div class="w3-row-padding" style="margin-bottom:30px">
-  <div id="data"><h4><b>Data - Analytics</b></h4></div>
+  <div id="data"><h4><b>Data – Analytics</b></h4></div>
 
   <div class="w3-third w3-container w3-margin-bottom">
-    <a href="#"><img src="mac.png" style="width:100%" class="w3-hover-opacity"></a>
+    <img src="mac.png" style="width:100%" class="w3-hover-opacity">
     <div class="w3-container w3-white">
       <p><b>Autistic Children Daily Activity Visualization</b></p>
       <p><i>Oct 2023 | Looker Studio</i></p>
@@ -130,7 +95,7 @@ gtag('config', 'G-0K5H04V2MT');
     <div class="w3-container w3-white">
       <p><b>Country GDP Clustering</b></p>
       <p><i>Apr 2022 | Python, K-Means</i></p>
-      <p>Identifying countries for donation prioritization.</p>
+      <p>Identifying priority countries for donation allocation.</p>
     </div>
   </div>
 
@@ -146,27 +111,8 @@ gtag('config', 'G-0K5H04V2MT');
   </div>
 </div>
 
-<!-- FOOTER -->
-<div class="w3-black w3-center w3-padding-24">
-  Let’s connect!
-  <br>
-  <a href="https://linkedin.com/in/milka-vincentiya/">
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-  </a>
-</div>
+<!-- ================= OTHERS ================= -->
+<div class="w3-row-padding" style="margin-bottom:20px">
+  <div id="others"><h4><b>Others</b></h4></div>
 
-</div>
-
-<script>
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
-</script>
-
-</body>
-</html>
+  <div class="w3-thir
