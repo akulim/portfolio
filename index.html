@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Milka Vincentiya | Urban Data Science Portfolio</title>
+<title>Milka Vincentiya's Portfolio</title>
 
 <head>
 <meta charset="UTF-8">
@@ -16,7 +16,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 /* Soft green-blue personalization */
 :root {
   --accent: #6fbfb5;
-  --darkbg: #0f1f1d;
+  --accent-dark: #0f2f2c;
 }
 
 .w3-accent {
@@ -24,9 +24,8 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   color: white;
 }
 
-.w3-dark {
-  background-color: var(--darkbg);
-  color: white;
+.w3-accent-text {
+  color: var(--accent);
 }
 </style>
 
@@ -46,21 +45,19 @@ gtag('config', 'G-0K5H04V2MT');
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:450px;" id="mySidebar">
 <br>
 <div class="w3-container">
-  <img src="pp.png" class="w3-round" style="width:45%">
-  <h4><b>Milka Vincentiya</b></h4>
-  <p>Master’s Student — Urban Data Science (NYU)</p>
+  <img src="pp.png" style="width:45%" class="w3-round">
 </div>
 
 <div class="w3-bar-block">
-  <h5 class="w3-padding">ABOUT ME</h5>
-  <p class="w3-padding-small" align="justify">
-    I am currently pursuing a Master’s degree in Urban Data Science at NYU, with prior professional experience as a data analyst in the banking sector and a background in architecture.
-    My interests lie in data-driven urban analysis, climate and policy evaluation, GIS, and simulation-based decision support.
+  <center><h5>ABOUT ME</h5></center>
+  <p align="justify" style="padding:10px">
+    Currently a Master’s student in Urban Data Science at NYU, with professional experience as a data analyst in the banking sector and a background in architecture.
+    Interested in data-driven urban analysis, GIS, climate & policy evaluation, and simulation-based decision support.
   </p>
 
-  <h5 class="w3-padding">SKILLS</h5>
-  <p class="w3-padding-small">
-    Python • SQL • GIS • Streamlit • Tableau • Looker Studio • HTML/CSS
+  <center><h5>SKILLS</h5></center>
+  <p class="w3-center">
+    Python | SQL | GIS | Streamlit | Tableau | Looker Studio | HTML/CSS
   </p>
 </div>
 </nav>
@@ -71,61 +68,90 @@ gtag('config', 'G-0K5H04V2MT');
 <div class="w3-main" style="margin-left:450px">
 
 <header class="w3-container">
-  <h1><b>Portfolio</b></h1>
+  <h1><b>PORTFOLIO</b></h1>
 </header>
 
 <!-- ================= FEATURED PROJECTS ================= -->
 <div class="w3-container">
-  <h3><b>Featured Projects</b></h3>
+  <h4 class="w3-accent-text"><b>Featured Projects</b></h4>
 </div>
 
-<div class="w3-row-padding w3-margin-bottom">
+<div class="w3-row-padding" style="margin-bottom:30px">
 
   <!-- GIS StoryMap -->
-  <div class="w3-half w3-container">
-    <a href="YOUR_GIS_STORYMAP_LINK" target="_blank">
+  <div class="w3-half w3-container w3-margin-bottom">
+    <a href="YOUR_GIS_STORYMAP_LINK">
       <img src="gis_storymap.png" style="width:100%" class="w3-hover-opacity">
     </a>
     <div class="w3-container w3-white">
       <p><b>Urban Policy GIS StoryMap</b></p>
-      <p><i>GIS, Urban Policy, Spatial Analysis</i></p>
+      <p><i>GIS | Urban Policy | Spatial Storytelling</i></p>
       <p>
-        An interactive GIS StoryMap analyzing urban and policy-related spatial patterns.
-        Designed to communicate insights to non-technical stakeholders through maps and narrative.
+        An interactive GIS StoryMap analyzing spatial patterns related to urban policy and planning,
+        designed for both technical and non-technical audiences.
       </p>
     </div>
   </div>
 
-  <!-- Streamlit App -->
-  <div class="w3-half w3-container">
-    <a href="YOUR_STREAMLIT_APP_LINK" target="_blank">
+  <!-- Streamlit Simulation -->
+  <div class="w3-half w3-container w3-margin-bottom">
+    <a href="YOUR_STREAMLIT_APP_LINK">
       <img src="streamlit.png" style="width:100%" class="w3-hover-opacity">
     </a>
     <div class="w3-container w3-white">
       <p><b>Urban Simulation & Scenario Explorer</b></p>
-      <p><i>Python, Streamlit, Simulation</i></p>
+      <p><i>Python | Streamlit | Simulation</i></p>
       <p>
-        A Streamlit-based interactive simulation allowing users to explore scenarios and model outcomes
-        related to urban systems and policy decisions.
+        An interactive simulation app built with Streamlit to explore scenarios and model outcomes
+        for urban systems and policy-driven decisions.
       </p>
     </div>
   </div>
 
 </div>
 
-<!-- ================= EXISTING DATA PROJECTS ================= -->
-<div class="w3-container">
-  <h3><b>Data Analytics Projects</b></h3>
+<!-- ================= EXISTING DATA PROJECTS (UNCHANGED) ================= -->
+<div class="w3-row-padding" style="margin-bottom:30px">
+  <div id="data"><h4><b>Data - Analytics</b></h4></div>
+
+  <div class="w3-third w3-container w3-margin-bottom">
+    <a href="#"><img src="mac.png" style="width:100%" class="w3-hover-opacity"></a>
+    <div class="w3-container w3-white">
+      <p><b>Autistic Children Daily Activity Visualization</b></p>
+      <p><i>Oct 2023 | Looker Studio</i></p>
+      <p>Dashboard visualizing daily activity progress of autistic children.</p>
+    </div>
+  </div>
+
+  <div class="w3-third w3-container w3-margin-bottom">
+    <a href="https://github.com/akulim/country-gdp-clustering/blob/main/Country_GDP_Clustering.pdf">
+      <img src="gdp.png" style="width:100%" class="w3-hover-opacity">
+    </a>
+    <div class="w3-container w3-white">
+      <p><b>Country GDP Clustering</b></p>
+      <p><i>Apr 2022 | Python, K-Means</i></p>
+      <p>Identifying countries for donation prioritization.</p>
+    </div>
+  </div>
+
+  <div class="w3-third w3-container">
+    <a href="https://github.com/akulim/olist-characteristic/tree/main/olist-future-sales">
+      <img src="olist.png" style="width:100%" class="w3-hover-opacity">
+    </a>
+    <div class="w3-container w3-white">
+      <p><b>Forecasting Olist Future Sales</b></p>
+      <p><i>Dec 2022 | Python, AutoARIMA</i></p>
+      <p>Sales forecasting for Brazilian e-commerce sellers.</p>
+    </div>
+  </div>
 </div>
 
-<!-- KEEP YOUR EXISTING GRIDS BELOW (UNCHANGED) -->
-<!-- You can paste your previous Data grids here exactly as-is -->
-
 <!-- FOOTER -->
-<div class="w3-dark w3-center w3-padding-24">
-  <p>Let’s connect</p>
-  <a href="https://linkedin.com/in/milka-vincentiya">
-    <i class="fa fa-linkedin w3-xlarge w3-hover-opacity"></i>
+<div class="w3-black w3-center w3-padding-24">
+  Let’s connect!
+  <br>
+  <a href="https://linkedin.com/in/milka-vincentiya/">
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
   </a>
 </div>
 
