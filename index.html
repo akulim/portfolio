@@ -1,163 +1,391 @@
 <!DOCTYPE html>
-<html>
-<title>Milka Vincentiya's Portfolio</title>
-
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Milka Vincentiya — Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+    <style>
+        :root {
+            --bg: #0f1416;
+            --panel: #151d20;
+            --accent: #6fbfb5;
+            --accent-glow: rgba(111, 191, 181, 0.3);
+            --text: #ecf4f3;
+            --muted: #8fa5a4;
+        }
 
-:root {
-  --accent: #6fbfb5;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-.w3-accent-text {
-  color: var(--accent);
-}
-</style>
+        body {
+            font-family: "Manrope", sans-serif;
+            background: radial-gradient(circle at 10% 10%, #182426, #0f1416 60%);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0K5H04V2MT"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-0K5H04V2MT');
-</script>
+        .wrapper {
+            max-width: 1000px;
+            margin: auto;
+            padding: 4rem 2rem;
+        }
+
+        /* --- HYPERLINK ANIMATIONS --- */
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        /* Animated underline for links inside text/lists */
+        .project-details a::after, .card a::after, .card ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .project-details a:hover::after, .card a:hover::after, .card ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .hero p {
+            font-weight: 300;
+            color: var(--muted);
+            max-width: 750px;
+            margin: 0 auto 2.5rem auto;
+            font-size: 1.1rem;
+        }
+
+        /* --- SKILLS SECTION --- */
+        .skills-section {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .skills-section h3 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .pill {
+            display: inline-block;
+            margin: 0.4rem;
+            padding: 6px 18px;
+            background: transparent;
+            border: 1px solid rgba(111, 191, 181, 0.3);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: default;
+        }
+
+        .pill:hover {
+            color: var(--bg);
+            background: var(--accent);
+            transform: scale(1.1);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* --- PROJECTS --- */
+        .section h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            text-align: center;
+        }
+
+        .project {
+            margin-bottom: 8rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .project.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 16px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            transition: all 0.5s cubic-bezier(0.2, 0.65, 0.3, 1);
+        }
+
+        .project:hover img {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 20px rgba(111, 191, 181, 0.1);
+        }
+
+        .project h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+
+        .project .meta {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1.5px;
+        }
+
+        .project-details {
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .project-details b {
+            display: block;
+            margin: 1.5rem 0 0.5rem;
+            color: var(--text);
+        }
+
+        .project-details ul {
+            list-style: none;
+            color: var(--muted);
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- OTHERS GRID --- */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: var(--panel);
+            padding: 2.5rem;
+            border-radius: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+            text-align: left;
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            background: #1a2529;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 { margin-bottom: 1rem; }
+
+        .card ul { list-style: none; }
+        .card ul li { margin-bottom: 0.6rem; }
+
+        footer {
+            text-align: center;
+            padding: 6rem 0 3rem;
+            color: var(--muted);
+        }
+
+        footer a {
+            font-size: 1.8rem;
+            margin: 0 15px;
+            color: var(--muted);
+            display: inline-block;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0K5H04V2MT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0K5H04V2MT');
+    </script>
 </head>
+<body>
 
-<body class="w3-light-grey w3-content" style="max-width:1600px">
+<div class="wrapper">
 
-<!-- Sidebar -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:450px;" id="mySidebar">
-<br>
+    <header class="hero">
+        <h1>Milka Vincentiya</h1>
+        <p>
+            Master’s student in <b>Urban Data Science</b> with professional experience as a Data Analyst in the banking sector.
+            Background in architecture with strong interest in data-driven analysis for urban, policy, and economic applications.
+        </p>
+        
+        <div class="skills-section">
+            <h3>Skills</h3>
+            <span class="pill">Python</span>
+            <span class="pill">SQL</span>
+            <span class="pill">Tableau</span>
+            <span class="pill">GIS</span>
+            <span class="pill">Looker Studio</span>
+            <span class="pill">Urban Analysis</span>
+        </div>
+    </header>
 
-<div class="w3-container">
-  <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey">
-    <i class="fa fa-remove"></i>
-  </a>
-</div>
+    <section class="section">
+        <h2>Data — Analytics</h2>
 
-<div class="w3-bar-block">
-  <center><h5 class="w3-accent-text">ABOUT ME</h5></center>
+        <div class="project">
+            <a href="https://floodlinknyc-2026.streamlit.app/">
+                <img src="mac.png" alt="Flood Simulation Tool">
+            </a>
+            <h3>Urban Flood Risk Simulation Tool</h3>
+            <div class="meta">Jan 2026 | Python • SARIMA • Streamlit</div>
+            <div class="project-details">
+                <b>Objective</b>
+                <p>Simulate flood risk under varying rainfall intensities and urban density scenarios.</p>
+                <b>Impact</b>
+                <ul>
+                    <li>Enabled scenario comparison across rainfall intensities</li>
+                    <li>Demonstrated risk amplification under high-density development</li>
+                    <li>Built interactive decision-support prototype</li>
+                </ul>
+                <a href="https://floodlinknyc-2026.streamlit.app/">View Live Project →</a>
+            </div>
+        </div>
 
-  <p align="justify" style="padding:10px">
-    Currently a Master’s student in Urban Data Science with professional experience as a Data Analyst in the banking sector.
-    Background in architecture with strong interest in data-driven analysis for urban, policy, and economic applications.
-    Skilled in Python, SQL, Tableau, and GIS-based analysis.
-  </p>
+        <div class="project">
+            <img src="mac.png" alt="NYC Storymap">
+            <h3>What Would New Yorker Choose Time Over Money?</h3>
+            <div class="meta">Dec 2025 | GIS • Storymap</div>
+            <div class="project-details">
+                <p>A GIS Storymap about housing value and commute trade-offs in NYC.</p>
+            </div>
+        </div>
 
-  <center><h5 class="w3-accent-text">SKILLS</h5></center>
-  <p class="w3-center">
-    Python | SQL | Tableau | Looker Studio | GIS | HTML/CSS | Adobe Photoshop/Illustrator
-  </p>
-</div>
-</nav>
+        <div class="project">
+            <img src="mac.png" alt="Autistic Children Visualization">
+            <h3>Autistic Children Daily Activity Visualization</h3>
+            <div class="meta">Oct 2023 | Looker Studio</div>
+            <div class="project-details">
+                <p>Dashboard visualizing daily activity progress of autistic children.</p>
+            </div>
+        </div>
 
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" id="myOverlay"></div>
+        <div class="project">
+            <a href="https://github.com/akulim/country-gdp-clustering/blob/main/Country_GDP_Clustering.pdf">
+                <img src="gdp.png" alt="GDP Clustering">
+            </a>
+            <h3>Country GDP Clustering</h3>
+            <div class="meta">Apr 2022 | Python • K-Means</div>
+            <div class="project-details">
+                <p>Identifying priority countries for donation allocation through machine learning.</p>
+            </div>
+        </div>
 
-<!-- PAGE CONTENT -->
-<div class="w3-main" style="margin-left:450px">
+        <div class="project">
+            <a href="https://github.com/akulim/olist-characteristic/tree/main/olist-future-sales">
+                <img src="olist.png" alt="Sales Forecasting">
+            </a>
+            <h3>Forecasting Olist Future Sales</h3>
+            <div class="meta">Dec 2022 | Python • AutoARIMA</div>
+            <div class="project-details">
+                <p>Sales forecasting for Brazilian e-commerce sellers.</p>
+            </div>
+        </div>
+    </section>
 
-<header class="w3-container">
-  <span class="w3-button w3-hide-large w3-xxlarge" onclick="w3_open()"><i class="fa fa-bars"></i></span>
-  <h1><b>PORTFOLIO</b></h1>
+    <section class="section">
+        <h2>Others</h2>
+        <div class="grid">
+            <div class="card">
+                <a href="https://drive.google.com/file/d/1WZdMR5rD5nolT-hlxYYTu5Uq6Fx0MTIJ/view">
+                    <img src="arch.png" alt="Architecture Portfolio">
+                </a>
+                <h3>Architecture & Design</h3>
+                <p>Architecture portfolio from academic and professional projects.</p>
+                <br>
+                <a href="https://drive.google.com/file/d/1WZdMR5rD5nolT-hlxYYTu5Uq6Fx0MTIJ/view">View Portfolio →</a>
+            </div>
 
-  <div class="w3-section w3-bottombar w3-padding-16">
-    <button class="w3-button w3-white"><a href="#data">Data</a></button>
-    <button class="w3-button w3-white"><a href="#others">Others</a></button>
-  </div>
-</header>
+            <div class="card">
+                <h3>Writing & Translations</h3>
+                <ul style="margin-top: 1rem;">
+                    <li><a href="https://medium.com/@akulim/">Medium (Bahasa Indonesia)</a></li>
+                    <li><a href="littleprince1.html">Little Prince (EN–ID)</a></li>
+                    <li><a href="oculus.html">The Latte Factor (EN–ID)</a></li>
+                    <li><a href="news-jp.html">Real Estate News (JP–ID)</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-<!-- ================= DATA PROJECTS ================= -->
-<div class="w3-row-padding" style="margin-bottom:30px">
-  <div id="data"><h4><b>Data – Analytics</b></h4></div>
-
-  <div class="w3-third w3-container w3-margin-bottom">
-    <img src="mac.png" style="width:100%" class="w3-hover-opacity">
-    <div class="w3-container w3-white">
-      <p><b>Autistic Children Daily Activity Visualization</b></p>
-      <p><i>Oct 2023 | Looker Studio</i></p>
-      <p>Dashboard visualizing daily activity progress of autistic children.</p>
-    </div>
-  </div>
-
-  <div class="w3-third w3-container w3-margin-bottom">
-    <a href="https://github.com/akulim/country-gdp-clustering/blob/main/Country_GDP_Clustering.pdf">
-      <img src="gdp.png" style="width:100%" class="w3-hover-opacity">
-    </a>
-    <div class="w3-container w3-white">
-      <p><b>Country GDP Clustering</b></p>
-      <p><i>Apr 2022 | Python, K-Means</i></p>
-      <p>Identifying priority countries for donation allocation.</p>
-    </div>
-  </div>
-
-  <div class="w3-third w3-container">
-    <a href="https://github.com/akulim/olist-characteristic/tree/main/olist-future-sales">
-      <img src="olist.png" style="width:100%" class="w3-hover-opacity">
-    </a>
-    <div class="w3-container w3-white">
-      <p><b>Forecasting Olist Future Sales</b></p>
-      <p><i>Dec 2022 | Python, AutoARIMA</i></p>
-      <p>Sales forecasting for Brazilian e-commerce sellers.</p>
-    </div>
-  </div>
-</div>
-
-<!-- ================= OTHERS ================= -->
-<div class="w3-row-padding" style="margin-bottom:20px">
-  <div id="others"><h4><b>Others</b></h4></div>
-
-  <div class="w3-third w3-container w3-margin-bottom">
-    <a href="https://drive.google.com/file/d/1WZdMR5rD5nolT-hlxYYTu5Uq6Fx0MTIJ/view">
-      <img src="arch.png" style="width:100%" class="w3-hover-opacity">
-    </a>
-    <div class="w3-container w3-white">
-      <p><b>Architecture & Design</b></p>
-      <p>Architecture portfolio from academic and professional projects.</p>
-    </div>
-  </div>
-
-  <div class="w3-third w3-container">
-    <div class="w3-container w3-white">
-      <p><b>Writing & Translations</b></p>
-      <ul>
-        <li><a href="https://medium.com/@akulim/">Medium (Bahasa Indonesia)</a></li>
-        <li><a href="https://akulim.github.io/portfolio/littleprince1.html">Little Prince (EN–ID)</a></li>
-        <li><a href="https://akulim.github.io/portfolio/oculus.html">The Latte Factor (EN–ID)</a></li>
-        <li><a href="https://akulim.github.io/portfolio/news-jp.html">Real Estate News (JP–ID)</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<div class="w3-black w3-center w3-padding-24">
-  Let’s connect!
-  <br>
-  <a href="https://linkedin.com/in/milka-vincentiya/">
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-  </a>
-</div>
+    <footer>
+        Let’s connect —
+        <a href="https://linkedin.com/in/milka-vincentiya/" target="_blank"><i class="fa fa-linkedin"></i></a>
+        <a href="https://github.com/akulim" target="_blank"><i class="fa fa-github"></i></a>
+    </footer>
 
 </div>
 
 <script>
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(".project, .card").forEach((el) => {
+        observer.observe(el);
+    });
 </script>
 
 </body>
